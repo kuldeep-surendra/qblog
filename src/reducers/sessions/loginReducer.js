@@ -1,7 +1,9 @@
-import { LOGIN_MODAL } from '../../actions/type'
+import { LOGIN_MODAL, LOGIN_SUCCESS, LOGIN_INVALID } from '../../actions/type'
 
 const INITIAL_STATE = {
-  showLoginModal: false
+  showLoginModal: false,
+  loginInvalid: '',
+  loginResponse: {}
 }
 
 export default (state = INITIAL_STATE, action) => {
