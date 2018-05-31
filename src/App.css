@@ -18,8 +18,8 @@
   font-size: 1.5em;
 }
 
-.headline {
-  color: red !important;
+.anchorColor {
+  color: #ff7d28 !important;
 }
 
 .App-intro {

@@ -1,20 +1,12 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-import { default as GrommetApp } from 'grommet/components/App'
-import Headline from 'grommet/components/Headline'
-import Image from 'grommet/components/Image'
+import App from 'grommet/components/App';
+import Title from 'grommet/components/Title';
+import Main from './components/main';
 
-class App extends Component {
-  render() {
-    return (
-      <GrommetApp>
-        <Image src={logo} />
-        <Headline className="headline">Welcome to React with Grommet</Headline>
-      </GrommetApp>
-    );
-  }
-}
-
-export default App;
+export default () => (
+  <App>
+    <Main/>
+  </App>
+);
