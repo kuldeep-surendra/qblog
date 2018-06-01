@@ -5,10 +5,6 @@ import Box from 'grommet/components/Box';
 import Hero from 'grommet/components/Hero';
 import Image from 'grommet/components/Image';
 
-
-// import '../../node_modules/grommet-css';
-
-
 class Main extends Component {
   render() {
     return (
