@@ -3,8 +3,11 @@ import { login } from "../../api/login";
 
 export const loginModalOperation = (status) => {
   return (dispatch) => {
+    const loginInvalid = 'loginInvalid';
+    const data = '';
     var showLoginModal = 'showLoginModal';
     dispatch({type: LOGIN_MODAL, payload: {showLoginModal, status}})
+    dispatch({type: LOGIN_INVALID, payload: {loginInvalid, data}})
   }
 }
 
@@ -19,7 +22,10 @@ export const loginToApp = (email, password) => {
       } else {
         var loginSuccess = 'loginSuccess';
         var data = res.data;
-        dispatch({type: LOGIN_SUCCESS, payload: {loginSuccess, data}})
+        var success = true
+        localStorage.setItem('email', data.email)
+        localStorage.setItem('token', data.id_token)
+        dispatch({type: LOGIN_SUCCESS, payload: {loginSuccess, success}})
       }
     })
     .catch(e => {
