@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Layer from 'grommet/components/Layer';
 import LoginForm from 'grommet/components/LoginForm';
-import Title from 'grommet/components/Title';
 import Toast from 'grommet/components/Toast';
 import { loginModalOperation, loginToApp } from '../actions';
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
 
 class Login extends Component {
 

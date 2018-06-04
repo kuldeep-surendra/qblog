@@ -7,7 +7,6 @@ import Menu from 'grommet/components/Menu';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import ActionsIcon from 'grommet/components/icons/base/Actions';
-import Layer from 'grommet/components/Layer';
 import Login from '../login';
 import { browserHistory } from 'react-router';
 

@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import { Router, Route, browserHistory } from 'react-router';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import './index.css';
-import App from './App';
-import Home from './components/home';
 import registerServiceWorker from './registerServiceWorker';
 import '../node_modules/grommet-css';
 import reducers from './reducers';
+import App from './App';
+import Home from './components/home';
+import Posts from './components/posts';
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
@@ -29,6 +29,7 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route  path="/" component={App}/>
     <Route  path="/home" component={Home} onEnter={requireAuth}/>
+    <Route  path="/posts" component={Posts} onEnter={requireAuth}/>
   </Router>
 </Provider>
 ), document.getElementById('root'));
