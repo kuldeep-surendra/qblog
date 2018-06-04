@@ -3,14 +3,9 @@ import Layer from 'grommet/components/Layer';
 import LoginForm from 'grommet/components/LoginForm';
 import Title from 'grommet/components/Title';
 import Toast from 'grommet/components/Toast';
-import { Redirect } from 'react-router-dom'
-// import FormFields from 'grommet/components/FormFields';
-// import Header from 'grommet/components/Header';
-// import Heading from 'grommet/components/Heading';
-// import Footer from 'grommet/components/Footer';
-// import Button from 'grommet/components/Button';
 import { loginModalOperation, loginToApp } from '../actions';
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router';
 
 class Login extends Component {
 
@@ -23,11 +18,6 @@ class Login extends Component {
   };
 
   render() {
-    const { loginSuccess } = this.props;
-    
-    if (loginSuccess) {
-      return <Redirect to='/home'/>;
-    }
     return (
       <Layer 
         closer={true}

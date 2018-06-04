@@ -1,5 +1,6 @@
 import { LOGIN_MODAL, LOGIN_SUCCESS, LOGIN_INVALID } from "../type";
-import { login } from "../../api/login";
+import { login } from "../../api/session";
+import { browserHistory } from 'react-router';
 
 export const loginModalOperation = (status) => {
   return (dispatch) => {
@@ -25,7 +26,10 @@ export const loginToApp = (email, password) => {
         var success = true
         localStorage.setItem('email', data.email)
         localStorage.setItem('token', data.id_token)
-        dispatch({type: LOGIN_SUCCESS, payload: {loginSuccess, success}})
+        var showLoginModal = 'showLoginModal';
+        var status = false;
+        dispatch({type: LOGIN_MODAL, payload: {showLoginModal, status}})
+        browserHistory.push('/home');
       }
     })
     .catch(e => {

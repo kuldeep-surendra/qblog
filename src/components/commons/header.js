@@ -7,13 +7,11 @@ import Menu from 'grommet/components/Menu';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 import ActionsIcon from 'grommet/components/icons/base/Actions';
-import { Redirect } from 'react-router-dom'
-
 import Layer from 'grommet/components/Layer';
 import Login from '../login';
-import { withRouter } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
-import { loginModalOperation } from '../../actions'
+import { loginModalOperation, logoutOfApp } from '../../actions'
 
 class NavBar extends Component {
 
@@ -29,10 +27,14 @@ class NavBar extends Component {
     }
   }
 
+  logout () {
+    this.props.logoutOfApp();
+  }
+
   render() {
     return (
       <Header fixed={false} float={true} colorIndex='accent-2-a'>
-        <Title onClick={() => this.props.history.push('/')}>
+        <Title onClick={() => browserHistory.push('/')}>
           Q-Blog
         </Title>
         <Box flex={true}
@@ -45,24 +47,27 @@ class NavBar extends Component {
             dropAlign={{ "right": "right" }}>
             {this.authenticate() ? 
               <div>
-                <Anchor href='#' className='anchorColor'>
+                <Anchor
+                   href='javascript:void(0)' 
+                   className='anchorColor'
+                   onClick={() => this.logout()}>
                   Logout
                 </Anchor>
                 <Anchor 
                   href='javascript:void(0)' 
                   className='anchorColor' 
-                  onClick={() => this.props.history.push('/home')}>
+                  onClick={() => browserHistory.push('/home')}>
                   Home
                 </Anchor>
               </div>
               :
               <div>
-                <Anchor href='#'
+                <Anchor href='javascript:void(0)'
                   className='active anchorColor'
                   onClick={(e) => this.getLoginModal(e)}>
                   Login
                 </Anchor>
-                <Anchor href='#' className='anchorColor'>
+                <Anchor href='javascript:void(0)' className='anchorColor'>
                   Register
                 </Anchor>
               </div>
@@ -80,4 +85,4 @@ const mapStateToProps = (state) => {
   return { showLoginModal, loginSuccess };
 }
 
-export default withRouter(connect(mapStateToProps, { loginModalOperation }) (NavBar));
+export default connect(mapStateToProps, { loginModalOperation, logoutOfApp }) (NavBar);
