@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import NavHeader from './commons/header';
-import Card from 'grommet/components/Card';
-import Anchor from 'grommet/components/Anchor';
-import Box from 'grommet/components/Box';
-import Columns from 'grommet/components/Columns';
+import {Card, Anchor, Box, Columns} from 'grommet';
 import { browserHistory } from 'react-router';
 
 class Home extends Component {
@@ -29,11 +26,11 @@ class Home extends Component {
               label='List >>' />} />
             </Box>
             <Box>
-              <Card label='Sample Label'
+              <Card label='Sample Table'
               heading='Sample Heading'
               description='Sample description providing more details.'
-              link={<Anchor href=''
-              label='Sample anchor' />} />
+              link={<Anchor href='' onClick={() => browserHistory.push('/sampleTable')}
+              label='Sample Table' />} />
             </Box>
           </Columns>
         </Box>

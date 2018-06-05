@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import NavHeader from './commons/header';
+import NavHeader from '../commons/header';
 import Box from 'grommet/components/Box';
 import Article from 'grommet/components/Article';
 import Section from 'grommet/components/Section';
 import Headline from 'grommet/components/Headline';
 import Split from 'grommet/components/Split';
-import { getPostsAction } from '../actions'
+import { getPostsAction } from '../../actions'
 import { connect } from 'react-redux';
 
 class Posts extends Component {

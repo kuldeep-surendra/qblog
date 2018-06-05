@@ -30,3 +30,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.scrollable-tbody > table > tbody{
+  display:block !important;
+  max-height: 343px !important;
+  overflow-y:scroll !important;
+  overflow-x:scroll !important;
+}
+
+.scrollable-tbody > table > thead, .scrollable-tbody > table > tbody tr {
+  display:table !important;
+  width:100% !important;
+  table-layout:fixed !important;
+}
+
+.scrollable-tbody > table > thead, .scrollable-tbody > table > tbody {
+  width: calc( 100% - 1em ) !important;
+  max-width: 800px !important; 
+}
+
+.scrollable-tbody > table > tbody{
+	max-height: 200px !important; 
+}
