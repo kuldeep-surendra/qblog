@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import NavHeader from './commons/header';
-import Card from 'grommet/components/Card';
-import Anchor from 'grommet/components/Anchor';
-import Box from 'grommet/components/Box';
-import Columns from 'grommet/components/Columns';
-import Table from 'grommet/components/Table';
-import TableRow from 'grommet/components/TableRow';
-import { browserHistory } from 'react-router';
+import { Box, Table, TableRow } from 'grommet';
 
 class SampleTable extends Component {
 

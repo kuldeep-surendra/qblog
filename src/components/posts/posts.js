@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 class Posts extends Component {
 
   componentWillMount () {
-    console.log("compwil")
     this.props.getPostsAction();
   }
 
@@ -42,7 +41,7 @@ class Posts extends Component {
                     <Headline margin='none' size='small' align='center'>
                       {post.title}
                     </Headline><br/>
-                    <p>{post.content}</p>
+                    <p>{post.description}</p>
                     <Split separator={false}
                       fixed={false}>
                       <Box

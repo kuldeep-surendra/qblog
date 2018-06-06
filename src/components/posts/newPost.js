@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
 import NavHeader from '../commons/header';
-import { Box, Article, Section, Headline, Split, Tabs, Tab, Paragraph} from 'grommet';
-import { getPostsAction } from '../../actions'
+import { Box, Split} from 'grommet';
 import { connect } from 'react-redux';
 import CreatePost from './createPost';
+import PreviewPost from './previewPost';
+import { setNewPostMode } from '../../actions'
 
 class NewPost extends Component {
-
-  // componentWillMount () {
-  //   console.log("compwil")
-  //   this.props.getPostsAction();
-  // }
 
   render() {
     return(
       <div>
         <NavHeader/><br/><br/>
         <Box margin='large' responsive={true}>
-          <Tabs justify='start'>
-            <Tab title='Create'>
-              <CreatePost/>
-            </Tab>
-            <Tab title='Preview'>
-              <Paragraph>
-                Second contents
-              </Paragraph>
-            </Tab>
-          </Tabs> 
+          <Split fixed={false}>
+            <Box colorIndex='neutral-1'
+              justify='start'
+              align='start'
+              pad='small'>
+              Create
+            </Box>
+            <Box colorIndex='neutral-2'
+              justify='start'
+              align='start'
+              pad='small'>
+              Preview
+            </Box>
+          </Split><br/>
+          {(this.props.new_post_mode === 'createMode') ? 
+            <CreatePost/>
+            :
+            <PreviewPost/>
+          }
         </Box>
       </div>
     );
@@ -34,9 +39,8 @@ class NewPost extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { posts } = state.posts;
-  return { posts };
+  const { new_post_mode } = state.posts;
+  return { new_post_mode };
 }
 
-export default connect(mapStateToProps, { getPostsAction }) (NewPost);
-// export default Posts;
+export default connect(mapStateToProps, { setNewPostMode }) (NewPost);

@@ -18,7 +18,7 @@ const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 // const history = syncHistoryWithStore(browserHistory, store);
 
-function requireAuth(nextState, replace) {
+const requireAuth = (nextState, replace) => {
   if(!localStorage.getItem('token') && !localStorage.getItem('email')){
     replace({
       pathname: '/'

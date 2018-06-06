@@ -52,3 +52,21 @@
 .scrollable-tbody > table > tbody{
 	max-height: 200px !important; 
 }
+
+.editorStyles {
+  border: solid #e8e3e3 0.5px;
+}
+
+.editorClassName {
+  min-height: 250px !important;
+  padding: 20px;
+}
+
+.descriptionBox {
+  width: 100% !important;
+  height: 100px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}

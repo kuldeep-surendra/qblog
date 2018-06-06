@@ -47,13 +47,11 @@ class NavBar extends Component {
             {this.authenticate() ? 
               <div>
                 <Anchor
-                   href='javascript:void(0)' 
                    className='anchorColor'
                    onClick={() => this.logout()}>
                   Logout
                 </Anchor>
                 <Anchor 
-                  href='javascript:void(0)' 
                   className='anchorColor' 
                   onClick={() => browserHistory.push('/home')}>
                   Home
@@ -61,12 +59,12 @@ class NavBar extends Component {
               </div>
               :
               <div>
-                <Anchor href='javascript:void(0)'
+                <Anchor
                   className='active anchorColor'
                   onClick={(e) => this.getLoginModal(e)}>
                   Login
                 </Anchor>
-                <Anchor href='javascript:void(0)' className='anchorColor'>
+                <Anchor className='anchorColor'>
                   Register
                 </Anchor>
               </div>
