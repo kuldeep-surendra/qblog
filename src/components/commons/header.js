@@ -11,7 +11,7 @@ import Login from '../login';
 import { browserHistory } from 'react-router';
 
 import { loginModalOperation, logoutOfApp } from '../../actions'
-import Register from '../register';
+import RegisterModal from '../register/registerModal';
 
 class NavBar extends Component {
 
@@ -78,7 +78,7 @@ class NavBar extends Component {
           </Menu>
         </Box>
         { this.props.showLoginModal ? <Login/> : null}
-        { this.props.showRegisterModal ? <Register/> : null}
+        { this.props.showRegisterModal ? <RegisterModal/> : null}
       </Header>
     );
   }
