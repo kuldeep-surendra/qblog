@@ -1,14 +1,22 @@
-import { LOGIN_MODAL, LOGIN_INVALID } from "../type";
+import { LOGIN_MODAL, LOGIN_INVALID, REGISTER_MODAL } from "../type";
 import { login } from "../../api/session";
 import { browserHistory } from 'react-router';
 
-export const loginModalOperation = (status) => {
+export const loginModalOperation = (loginModalStatus, registerModalStatus) => {
   return (dispatch) => {
-    const loginInvalid = 'loginInvalid';
-    const data = '';
     var showLoginModal = 'showLoginModal';
-    dispatch({type: LOGIN_MODAL, payload: {showLoginModal, status}})
-    dispatch({type: LOGIN_INVALID, payload: {loginInvalid, data}})
+    var showRegisterModal = 'showRegisterModal';
+    if(loginModalStatus){
+      const loginInvalid = 'loginInvalid';
+      const data = '';
+      dispatch({type: LOGIN_MODAL, payload: {showLoginModal, loginModalStatus}})
+      dispatch({type: LOGIN_INVALID, payload: {loginInvalid, data}})
+    } else if (registerModalStatus) {
+      dispatch({type: REGISTER_MODAL, payload: {showRegisterModal, registerModalStatus}})
+    } else { 
+      dispatch({type: LOGIN_MODAL, payload: {showLoginModal, loginModalStatus}})
+      dispatch({type: REGISTER_MODAL, payload: {showRegisterModal, registerModalStatus}})
+    }
   }
 }
 

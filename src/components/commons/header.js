@@ -11,11 +11,16 @@ import Login from '../login';
 import { browserHistory } from 'react-router';
 
 import { loginModalOperation, logoutOfApp } from '../../actions'
+import Register from '../register';
 
 class NavBar extends Component {
 
   getLoginModal (e) {
-    this.props.loginModalOperation(true);
+    this.props.loginModalOperation(true, false);
+  };
+
+  getRegisterModal (e) {
+    this.props.loginModalOperation(false, true);
   };
 
   authenticate () {
@@ -64,7 +69,8 @@ class NavBar extends Component {
                   onClick={(e) => this.getLoginModal(e)}>
                   Login
                 </Anchor>
-                <Anchor className='anchorColor'>
+                <Anchor className='anchorColor'
+                   onClick={(e) => this.getRegisterModal(e)}>
                   Register
                 </Anchor>
               </div>
@@ -72,14 +78,15 @@ class NavBar extends Component {
           </Menu>
         </Box>
         { this.props.showLoginModal ? <Login/> : null}
+        { this.props.showRegisterModal ? <Register/> : null}
       </Header>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  const { showLoginModal, loginSuccess } = state.login;
-  return { showLoginModal, loginSuccess };
+  const { showLoginModal, showRegisterModal, loginSuccess } = state.login;
+  return { showLoginModal, showRegisterModal, loginSuccess };
 }
 
 export default connect(mapStateToProps, { loginModalOperation, logoutOfApp }) (NavBar);

@@ -12,7 +12,7 @@ class Login extends Component {
   }
 
   closeLoginModal (e) {
-    this.props.loginModalOperation(false);
+    this.props.loginModalOperation(false, false);
   };
 
   render() {
