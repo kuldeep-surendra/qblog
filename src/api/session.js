@@ -17,3 +17,15 @@ export const logout = (params) => {
   }
   return axios({method: 'post', url: `${ROOT_URL}/logout`, headers: headers});
 }
+
+export const register = (params) => {
+  let headers = {
+    'Content-Type': 'application/json'
+  }
+  return axios({
+    method: 'post', 
+    url: `${ROOT_URL}/users`, 
+    headers: headers, 
+    data: params
+  });
+}

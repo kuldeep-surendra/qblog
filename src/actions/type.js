@@ -6,3 +6,4 @@ export const POSTS = 'posts';
 export const POST_FORM_DATA = 'post_form_data';
 export const NEW_POST_MODE = 'new_post_mode';
 export const REGISTER_MODAL = 'register_modal';
+export const REGISTER_SUCCESS = 'register_success';

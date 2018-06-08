@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Header, Title, Menu, Box, Anchor, ActionsIcon, Toast } from 'grommet';
 
-import Header from 'grommet/components/Header';
-import Title from 'grommet/components/Title';
-import Menu from 'grommet/components/Menu';
-import Box from 'grommet/components/Box';
-import Anchor from 'grommet/components/Anchor';
-import ActionsIcon from 'grommet/components/icons/base/Actions';
 import Login from '../login';
 import { browserHistory } from 'react-router';
 
@@ -79,6 +74,16 @@ class NavBar extends Component {
         </Box>
         { this.props.showLoginModal ? <Login/> : null}
         { this.props.showRegisterModal ? <RegisterModal/> : null}
+        { (this.props.registerSuccess === 'Registered successfully') ? 
+          <Toast status='ok' size='small'>
+            Registered successfully !
+          </Toast>
+          :
+          (this.props.registerSuccess &&
+             <Toast status='critical' size='small'>
+            {this.props.registerSuccess}
+          </Toast>)
+        }
       </Header>
     );
   }
@@ -86,7 +91,8 @@ class NavBar extends Component {
 
 const mapStateToProps = (state) => {
   const { showLoginModal, showRegisterModal, loginSuccess } = state.login;
-  return { showLoginModal, showRegisterModal, loginSuccess };
+  const { registerSuccess } = state.register;
+  return { showLoginModal, showRegisterModal, loginSuccess, registerSuccess };
 }
 
 export default connect(mapStateToProps, { loginModalOperation, logoutOfApp }) (NavBar);
