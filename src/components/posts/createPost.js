@@ -12,6 +12,9 @@ class CreatePost extends Component {
   constructor(props) {
     super(props);
     let editorState;
+    let descriptionValue = props.post_form_data.description ? props.post_form_data.description : '';
+    let titleValue = props.post_form_data.title ? props.post_form_data.title : '';
+
     if (props.post_form_data.content) {
       const blocksFromHTML = htmlToDraft(props.post_form_data.content);
       const contentState = ContentState.createFromBlockArray(blocksFromHTML);
@@ -22,7 +25,8 @@ class CreatePost extends Component {
 
     this.state = {
       editorState,
-      editorContentValue: ''
+      descriptionValue,
+      titleValue
     };
   }
 
@@ -52,12 +56,12 @@ class CreatePost extends Component {
     return(
       <div>
         <form>
-          Title: <TextInput name='title' onDOMChange={(e) => this.updateTitle(e)} value={this.props.post_form_data.title}/><br/><br/>
+          Title: <TextInput name='title' onDOMChange={(e) => this.updateTitle(e)} value={this.state.titleValue}/><br/><br/>
           <label>Description: </label><br/><br/>
           <textarea 
             className='descriptionBox editorStyles'
             onChange={(e) => this.updateDescription(e)} 
-            value={this.props.post_form_data.description}/><br/><br/>
+            value={this.state.descriptionValue}/><br/><br/>
           <label>Content: </label><br/><br/>
           <div className='editorStyles'>
             <Editor

@@ -70,3 +70,11 @@
 .cursor-pointer {
   cursor: pointer !important;
 }
+
+.passwordStyle input{
+  border: none !important;
+}
+
+.passwordStyle input:focus{
+  outline: none;
+}
