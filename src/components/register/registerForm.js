@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, TextInput, FormFields, Label, FormField, PasswordInput, Box, Select, Toast } from 'grommet';
+import { Button, TextInput, FormFields, FormField, PasswordInput, Box, Select } from 'grommet';
 import { registerAction } from '../../actions';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
@@ -31,7 +31,7 @@ const renderPassword = ({input, valueField, label, meta: {touched, error, warnin
 const renderSelect = ({input, valueField, label, meta: {touched, error, warning}}) => {
   var errMsg = touched && error;
   return (<FormField error={errMsg ? errMsg : ''} size='medium' label={label}>
-    <Select placeHolder='None'
+    <Select
       inline={false}
       placeholder='Role'
       options={['Admin', 'User']}
@@ -66,7 +66,7 @@ const validate = values => {
     errors.password = 'Should be min 5 digit'
   } else if (!values.passwordConfirmation) {
     errors.passwordConfirmation = 'Required'
-  } else if (values.password != values.passwordConfirmation){
+  } else if (values.password !== values.passwordConfirmation){
     errors.passwordConfirmation = 'Passwords did not match'
   }
   if(!values.role) {
@@ -76,10 +76,6 @@ const validate = values => {
 }
 
 class RegisterForm extends Component {
-
-  constructor(props){
-    super(props);
-  }
 
   submit (values) {
     values.role = values.role.value;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Layer, Header, Heading } from 'grommet';
 import { loginModalOperation } from '../../actions';
 import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
 import RegisterForm from './registerForm';
 
 class RegisterModal extends Component {

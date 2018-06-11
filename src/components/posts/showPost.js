@@ -7,10 +7,6 @@ import ReactHtmlParser from 'react-html-parser';
 
 class ShowPost extends Component {
 
-  constructor (props) {
-    super(props);
-  }
-
   componentWillMount () {
     this.props.getPostAction(this.props.params.id);
   }
@@ -25,7 +21,7 @@ class ShowPost extends Component {
         <Box margin='large' responsive={true}>
           <center><div>{ ReactHtmlParser(this.props.show_post.content) }</div><br/></center>
         </Box><br/>
-        <Box justify='center' pad='large' separator='top' margin='large' pad='small'>
+        <Box justify='center' separator='top' margin='large' pad='small'>
           <b>Comments:</b>
           {this.props.show_post.comments && this.props.show_post.comments.map(comment => {
             return (

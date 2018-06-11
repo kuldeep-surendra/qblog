@@ -1,4 +1,3 @@
-import { browserHistory } from 'react-router';
 import { register } from "../../api/session";
 import { REGISTER_SUCCESS, REGISTER_MODAL } from '../type';
 
