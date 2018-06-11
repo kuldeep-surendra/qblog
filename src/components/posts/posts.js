@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import NavHeader from '../commons/header';
-import Box from 'grommet/components/Box';
-import Article from 'grommet/components/Article';
-import Section from 'grommet/components/Section';
-import Headline from 'grommet/components/Headline';
-import Split from 'grommet/components/Split';
+import {Box, Article, Section, Headline, Split} from 'grommet';
 import { getPostsAction } from '../../actions'
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
 class Posts extends Component {
 
   componentWillMount () {
     this.props.getPostsAction();
+  }
+
+  showOnePost (id) {
+    browserHistory.push(`/showPost/${id}`);
   }
 
   render() {
@@ -36,7 +37,9 @@ class Posts extends Component {
                     justify='center'
                     separator='bottom'
                     flex='shrink'
+                    className='postsHover'
                     // size='medium'
+                    onClick={() => this.showOnePost(post.id)}
                     full={false}>
                     <Headline margin='none' size='small' align='center'>
                       {post.title}
@@ -74,4 +77,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { getPostsAction }) (Posts);
-// export default Posts;

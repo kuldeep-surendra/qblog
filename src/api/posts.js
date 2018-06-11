@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ROOT_URL } from './api_config';
 
-function headers() {
+const headers = () => {
   return {
     'Authorization': `Bearer ${localStorage.getItem('token')}`,
     'Email': localStorage.getItem('email'),
@@ -23,5 +23,13 @@ export const savePost = (params) => {
       description: params.description,
       content: params.content
     }
+  });
+}
+
+export const getPost = (id) => {
+  return axios({
+    method: 'get', 
+    url: `${ROOT_URL}/posts/${id}`, 
+    headers: headers()
   });
 }

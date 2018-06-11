@@ -78,3 +78,7 @@
 .passwordStyle input:focus{
   outline: none;
 }
+
+.postsHover:hover {
+  color: #ff7d28;
+}

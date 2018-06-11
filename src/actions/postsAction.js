@@ -1,5 +1,5 @@
-import { POSTS, POST_FORM_DATA, NEW_POST_MODE } from "./type";
-import { getPosts, savePost } from "../api/posts";
+import { POSTS, POST_FORM_DATA, NEW_POST_MODE, SHOW_POST } from "./type";
+import { getPosts, savePost, getPost } from "../api/posts";
 import { browserHistory } from 'react-router';
 
 export const getPostsAction = (status) => {
@@ -38,5 +38,17 @@ export const savePostAction = (status) => {
       browserHistory.push('/home');
     })
     .catch(e => console.log(e))
+  }
+}
+
+export const getPostAction = (status) => {
+  return (dispatch) => {
+    const show_post = 'show_post';
+    getPost(status)
+    .then(res => {
+      const data = res.data
+      dispatch({type: SHOW_POST, payload: {show_post, data}})
+    })
+    .catch(e => console.log(e));
   }
 }
