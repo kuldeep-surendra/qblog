@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should mount home component 1`] = `
+<div>
+  <Connect(NavBar) />
+  <br />
+  <Box
+    announce={false}
+    direction="column"
+    focusable={true}
+    margin="large"
+    pad="none"
+    responsive={true}
+    tag="div"
+  >
+    <Columns
+      justify="start"
+      maxCount={1}
+      responsive={true}
+    >
+      <Box
+        announce={false}
+        direction="column"
+        focusable={true}
+        pad="none"
+        responsive={true}
+        tag="div"
+      >
+        <Card
+          a11yTitle="Card"
+          contentPad="medium"
+          description="Create your blog and spread knowledge!"
+          heading="Create Blog Post"
+          headingStrong={true}
+          label="Blog post"
+          link={
+            <Anchor
+              animateIcon={true}
+              label="Create >>"
+              method="push"
+              onClick={[Function]}
+              tag="a"
+            />
+          }
+          textSize="small"
+        />
+      </Box>
+      <Box
+        announce={false}
+        direction="column"
+        focusable={true}
+        pad="none"
+        responsive={true}
+        tag="div"
+      >
+        <Card
+          a11yTitle="Card"
+          contentPad="medium"
+          description="Get details of all posts, explore knowledge."
+          heading="Posts Feed"
+          headingStrong={true}
+          label="All Posts"
+          link={
+            <Anchor
+              animateIcon={true}
+              label="List >>"
+              method="push"
+              onClick={[Function]}
+              tag="a"
+            />
+          }
+          textSize="small"
+        />
+      </Box>
+      <Box
+        announce={false}
+        direction="column"
+        focusable={true}
+        pad="none"
+        responsive={true}
+        tag="div"
+      >
+        <Card
+          a11yTitle="Card"
+          contentPad="medium"
+          description="Sample description providing more details."
+          heading="Sample Heading"
+          headingStrong={true}
+          label="Sample Table"
+          link={
+            <Anchor
+              animateIcon={true}
+              href=""
+              label="Sample Table"
+              method="push"
+              onClick={[Function]}
+              tag="a"
+            />
+          }
+          textSize="small"
+        />
+      </Box>
+    </Columns>
+  </Box>
+</div>
+`;

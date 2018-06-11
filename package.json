@@ -6,6 +6,9 @@
     "axios": "^0.18.0",
     "draft-js": "^0.10.5",
     "draftjs-to-html": "^0.8.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-draft-wysiwyg": "^1.12.13",
@@ -24,7 +27,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-jest": "^23.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "grommet": "^1.10.1",
-    "grommet-css": "^1.6.0"
+    "grommet-css": "^1.6.0",
+    "jest": "^23.1.0",
+    "react-test-renderer": "^16.4.0"
   }
 }
