@@ -4,11 +4,20 @@ import LoginForm from 'grommet/components/LoginForm';
 import Toast from 'grommet/components/Toast';
 import { loginModalOperation, loginToApp } from '../actions';
 import { connect } from 'react-redux';
+import auth0 from 'auth0-js';
+import Auth from '../Auth';
 
 class Login extends Component {
 
+  constructor () {
+    super();
+    // this.handleAuthentication = this.handleAuthentication.bind(this);
+  }
+  
   login (username, password) {
-    this.props.loginToApp(username, password);
+    const auth = new Auth();
+    // this.props.loginToApp(username, password);
+    auth.login();
   }
 
   closeLoginModal (e) {

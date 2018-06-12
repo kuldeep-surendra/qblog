@@ -3,7 +3,7 @@ import NavHeader from '../commons/header';
 import {Box, Article, Section, Headline, Split} from 'grommet';
 import { getPostsAction } from '../../actions'
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import browserHistory from '../../history';
 
 class Posts extends Component {
 
