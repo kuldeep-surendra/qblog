@@ -13,8 +13,8 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'qwinix-saml.auth0.com',
     clientID: '',
-    redirectUri: 'http://localhost:3001/callback',
-    audience: 'http://localhost:3000',
+    redirectUri: 'http://localhost:3000/callback',
+    audience: 'http://localhost:3001',
     responseType: 'code token id_token',
     scope: this.requestedScopes
   });

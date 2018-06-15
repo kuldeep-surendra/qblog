@@ -1,5 +1,5 @@
 import { logout } from "../../api/session";
-import { browserHistory } from 'react-router';
+import  browserHistory  from '../../history';
 
 export const logoutOfApp = (status) => {
   return (dispatch) => {

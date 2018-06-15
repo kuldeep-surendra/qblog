@@ -22,7 +22,7 @@ class Posts extends Component {
         <Box margin='large' responsive={true}>
           {/* <Columns> */}
               <Article scrollStep={false}>
-            { this.props.posts.map(post => {
+            { this.props.posts && this.props.posts.map(post => {
               return (
                 // <Box key={post.id}>
                 //   <Card label="Blog post"
