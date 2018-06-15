@@ -8,7 +8,7 @@ export const getPostsAction = (status) => {
     var data = '';
     getPosts()
     .then(res => {
-      data = res.data;
+      data = res.data.posts;
       dispatch({type: POSTS, payload: {posts, data}})
     })
     .catch(e => console.log(e))

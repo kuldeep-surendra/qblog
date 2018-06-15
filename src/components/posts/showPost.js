@@ -8,7 +8,7 @@ import ReactHtmlParser from 'react-html-parser';
 class ShowPost extends Component {
 
   componentWillMount () {
-    this.props.getPostAction(this.props.params.id);
+    this.props.getPostAction(this.props.match.params.id);
   }
 
   render() {

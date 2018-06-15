@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js';
 import browserHistory from './history';
+import { register } from './api/session';
 
 export default class Auth {
 
@@ -24,11 +25,11 @@ export default class Auth {
   }
 
   handleAuthentication() {
-    console.log("hi")
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         console.log(authResult)
+        register({email: authResult.idTokenPayload.name})
         browserHistory.push('/home');
       } else if (err) {
         // history.replace('/home');
