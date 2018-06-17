@@ -31,7 +31,7 @@ export const loginToApp = (email, password) => {
         dispatch({type: LOGIN_INVALID, payload: {loginInvalid, dataMessage}});
       } else {
         localStorage.setItem('email', data.email);
-        localStorage.setItem('token', data.id_token);
+        localStorage.setItem('access_token', data.id_token);
         var showLoginModal = 'showLoginModal';
         var status = false;
         dispatch({type: LOGIN_MODAL, payload: {showLoginModal, status}})
