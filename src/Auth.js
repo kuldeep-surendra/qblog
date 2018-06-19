@@ -1,6 +1,6 @@
 import auth0 from 'auth0-js';
 import browserHistory from './history';
-import { AUTH_CONFIG } from './auth0-variables';
+import  { AUTH_CONFIG }  from './auth-variables';  
 import { register } from './api/session';
 
 export default class Auth {
@@ -11,12 +11,11 @@ export default class Auth {
   }
 
   requestedScopes = 'openid profile';
-  
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,
     clientID: AUTH_CONFIG.clientId,
     redirectUri: AUTH_CONFIG.callbackUrl,
-    audience: 'http://localhost:3001',
+    audience: AUTH_CONFIG.audience,
     responseType: 'code token id_token',
     scope: this.requestedScopes
   });
