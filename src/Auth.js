@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js';
 import browserHistory from './history';
+import { AUTH_CONFIG } from './auth0-variables';
 import { register } from './api/session';
 
 export default class Auth {
@@ -12,9 +13,9 @@ export default class Auth {
   requestedScopes = 'openid profile';
   
   auth0 = new auth0.WebAuth({
-    domain: 'qwinix-saml.auth0.com',
-    clientID: '',
-    redirectUri: 'http://localhost:3000/callback',
+    domain: AUTH_CONFIG.domain,
+    clientID: AUTH_CONFIG.clientId,
+    redirectUri: AUTH_CONFIG.callbackUrl,
     audience: 'http://localhost:3001',
     responseType: 'code token id_token',
     scope: this.requestedScopes
