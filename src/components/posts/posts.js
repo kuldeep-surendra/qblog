@@ -3,7 +3,7 @@ import NavHeader from '../commons/header';
 import {Box, Article, Section, Headline, Split} from 'grommet';
 import { getPostsAction } from '../../actions'
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import browserHistory from '../../history';
 
 class Posts extends Component {
 
@@ -22,7 +22,7 @@ class Posts extends Component {
         <Box margin='large' responsive={true}>
           {/* <Columns> */}
               <Article scrollStep={false}>
-            { this.props.posts.map(post => {
+            { this.props.posts && this.props.posts.map(post => {
               return (
                 // <Box key={post.id}>
                 //   <Card label="Blog post"

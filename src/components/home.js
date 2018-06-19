@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavHeader from './commons/header';
 import {Card, Anchor, Box, Columns} from 'grommet';
-import { browserHistory } from 'react-router';
+import browserHistory from '../history';
 
 class Home extends Component {
 

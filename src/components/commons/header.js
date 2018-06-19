@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Header, Title, Menu, Box, Anchor, ActionsIcon, Toast } from 'grommet';
 
 import Login from '../login';
-import { browserHistory } from 'react-router';
+import browserHistory from '../../history';
 
 import { loginModalOperation, logoutOfApp } from '../../actions'
 import RegisterModal from '../register/registerModal';
@@ -19,7 +19,7 @@ class NavBar extends Component {
   };
 
   authenticate () {
-    if(localStorage.getItem('token') && localStorage.getItem('email')){
+    if(localStorage.getItem('access_token') && localStorage.getItem('email')){
       return true;
     } else {
       return false;
