@@ -1,0 +1,85 @@
+version: "2"
+services:
+  redis:
+    image: "redis:alpine"
+    mem_limit: 224288000
+    cpu_shares: 100
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: qblog-redis
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: qblog
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${USER_NAME}
+      - POSTGRES_PASSWORD=${USER_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    mem_limit: 224288000
+    cpu_shares: 100
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: qblog-db
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: qblog
+  web-data: 
+    image: "${DOCKER_REGISTRY}/${DOCKER_IMAGE_REPO}:${DOCKER_IMAGE_TAG}"
+    environment:
+      - POSTGRES_USER=${USER_NAME}
+      - POSTGRES_PASSWORD=${USER_PASSWORD}
+      - DATABASE_URL=postgres://${USER_NAME}:${USER_PASSWORD}@db:5432/${DB_NAME}
+    mem_limit: 224288000
+    cpu_shares: 100
+    ports: 
+      - 3002:3002
+    command: npm run prod
+    volumes:
+      - app:/app
+    links:
+      - db
+      - redis
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: qblog-data
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: qblog
+  web-api-service:
+    image: "${DOCKER_REGISTRY}/${DOCKER_IMAGE_REPO}:${DOCKER_IMAGE_TAG}"
+    ports:
+      - 3001:3001
+    command: npm start
+    volumes:
+      - app-service:/app-service
+    links:
+      - redis
+      - web-data
+    mem_limit: 224288000
+    cpu_shares: 100
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: qblog-api
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: qblog
+  web-frontend:
+    image: "${DOCKER_REGISTRY}/${DOCKER_IMAGE_REPO}:${DOCKER_IMAGE_TAG}"
+    mem_limit: 224288000
+    cpu_shares: 100
+    ports:
+      - 80:80
+    command: serve -s build -l 80
+    volumes:
+     - app-react:/app-react
+    links:
+      - web-api-service
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: qblog-react
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: qblog
