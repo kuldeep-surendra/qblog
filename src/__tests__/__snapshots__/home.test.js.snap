@@ -11,17 +11,6 @@ exports[`Home should click create blog post link 1`] = `
 </a>
 `;
 
-exports[`Home should click create blog post link 2`] = `
-<a
-  aria-label={undefined}
-  className="grommetux-anchor"
-  href={undefined}
-  onClick={[Function]}
->
-  Create &gt;&gt;
-</a>
-`;
-
 exports[`Home should click posts feed link 1`] = `
 <a
   aria-label={undefined}

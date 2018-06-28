@@ -19,9 +19,7 @@ describe('Home', () => {
     const card = wrapper.find('Columns').find('Box').first().find('Card')
     const component = renderer.create(card.props().link)
     let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
     tree.props.onClick();
-    tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   })
 
