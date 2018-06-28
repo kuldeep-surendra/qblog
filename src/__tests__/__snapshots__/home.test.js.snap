@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Home should click create blog post link 1`] = `
+<a
+  aria-label={undefined}
+  className="grommetux-anchor"
+  href={undefined}
+  onClick={[Function]}
+>
+  Create &gt;&gt;
+</a>
+`;
+
+exports[`Home should click create blog post link 2`] = `
+<a
+  aria-label={undefined}
+  className="grommetux-anchor"
+  href={undefined}
+  onClick={[Function]}
+>
+  Create &gt;&gt;
+</a>
+`;
+
+exports[`Home should click posts feed link 1`] = `
+<a
+  aria-label={undefined}
+  className="grommetux-anchor"
+  href={undefined}
+  onClick={[Function]}
+>
+  List &gt;&gt;
+</a>
+`;
+
+exports[`Home should click sample table link 1`] = `
+<a
+  aria-label={undefined}
+  className="grommetux-anchor"
+  href=""
+  onClick={[Function]}
+>
+  Sample Table
+</a>
+`;
+
 exports[`Home should mount home component 1`] = `
 <div>
   <Connect(NavBar) />
